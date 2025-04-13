@@ -5,7 +5,7 @@ import ArrayList.models.Library;
 import java.util.List;
 
 public interface LibraryService {
-//    TODO CRUD METHODS
+
     List<Library>saveLibrary(List<Library> libraries);
 
     List<Library>getAllLibraries();
