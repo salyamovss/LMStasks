@@ -1,23 +1,25 @@
-package ArrayList.models;
+package ArrayList.models.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class Library {
-    private long id;
+    private static final AtomicLong ID_GENERATOR = new AtomicLong(1);
+
+    private Long id;
     private String name;
     private String address;
     private List<Book> books;
     private List<Reader> readers;
 
     public Library(String name, String address) {
+        this.id = ID_GENERATOR.getAndIncrement();
         this.name = name;
         this.address = address;
         this.books = new ArrayList<>();
         this.readers = new ArrayList<>();
     }
-
-    // Геттеры и сеттеры
     public long getId() {
         return id;
     }

@@ -1,6 +1,6 @@
 package ArrayList.models.service;
 
-import ArrayList.models.Book;
+import ArrayList.models.models.Book;
 
 import java.util.List;
 

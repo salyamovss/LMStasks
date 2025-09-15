@@ -1,4 +1,4 @@
-package ArrayList.models;
+package ArrayList.models.models;
 
 import ArrayList.models.enums.Gender;
 import java.util.concurrent.atomic.AtomicLong;
@@ -12,9 +12,6 @@ public class Reader {
     private String phoneNumber;
     private Gender gender;
 
-    public Reader() {
-        this.id = ID_GENERATOR.getAndIncrement();
-    }
 
     public Reader(String fullName, String email, String phoneNumber, Gender gender) {
         this.id = ID_GENERATOR.getAndIncrement();

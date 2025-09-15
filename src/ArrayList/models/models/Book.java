@@ -1,19 +1,20 @@
-package ArrayList.models;
+package ArrayList.models.models;
 
 import ArrayList.models.enums.Genre;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 public class Book {
-    private long id;
+
+    private static final AtomicLong ID_GENERATOR = new AtomicLong(1);
+
+    private Long id;
     private String name;
     private String author;
     private Genre genre;
 
-    public Book(String title,String author) {
-
-    }
-
-    public Book( String name, String author, Genre genre) {
-
+    public Book(String name, String author, Genre genre) {
+        this.id = ID_GENERATOR.getAndIncrement();
         this.name = name;
         this.author = author;
         this.genre = genre;
@@ -21,10 +22,6 @@ public class Book {
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -54,10 +51,10 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-               "id=" + id +
-               ", name='" + name + '\'' +
-               ", author='" + author + '\'' +
-               ", genre=" + genre +
-               '}';
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", genre=" + genre +
+                '}';
     }
 }
