@@ -60,6 +60,7 @@ public class Main {
                     String name = scanner.nextLine();
                     System.out.print("Введите адрес библиотеки: ");
                     String address = scanner.nextLine();
+
                     Library library = new Library(name, address);
                     libraryService.addLibrary(library);
                     System.out.println("✅ Библиотека добавлена с ID: " + library.getId());
@@ -90,8 +91,8 @@ public class Main {
                     String newName = scanner.nextLine();
                     System.out.print("Введите новый адрес: ");
                     String newAddress = scanner.nextLine();
+
                     Library updated = new Library(newName, newAddress);
-                    updated.setId(id);
                     Library result = libraryService.updateLibrary(id, updated);
                     System.out.println(result != null ? "✅ Обновлено: " + result : "❌ Библиотека не найдена!");
                 }
@@ -143,7 +144,7 @@ public class Main {
                 }
 
                 case 9 -> {
-                    System.out.print("Введите ID читателя: ");
+                    System.out.print("Введите ID читателя для обновления: ");
                     long id = Long.parseLong(scanner.nextLine());
                     System.out.print("Введите новое имя: ");
                     String name = scanner.nextLine();
@@ -151,11 +152,18 @@ public class Main {
                     String email = scanner.nextLine();
                     System.out.print("Введите новый телефон: ");
                     String phone = scanner.nextLine();
-                    System.out.print("Введите пол (MALE/FEMALE): ");
-                    Gender gender = Gender.valueOf(scanner.nextLine().toUpperCase());
+
+                    Gender gender = null;
+                    while (gender == null) {
+                        System.out.print("Введите пол (MALE/FEMALE): ");
+                        try {
+                            gender = Gender.valueOf(scanner.nextLine().toUpperCase());
+                        } catch (IllegalArgumentException e) {
+                            System.out.println("❌ Некорректный пол!");
+                        }
+                    }
 
                     Reader updated = new Reader(name, email, phone, gender);
-                    updated.setId(id);
                     Reader result = readerService.updateReader(id, updated);
                     System.out.println(result != null ? "✅ Обновлён: " + result : "❌ Читатель не найден!");
                 }

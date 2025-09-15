@@ -1,12 +1,9 @@
 package ArrayList.models.models;
 
+import ArrayList.models.db.GenerateId;
 import ArrayList.models.enums.Genre;
 
-import java.util.concurrent.atomic.AtomicLong;
-
 public class Book {
-
-    private static final AtomicLong ID_GENERATOR = new AtomicLong(1);
 
     private Long id;
     private String name;
@@ -14,7 +11,7 @@ public class Book {
     private Genre genre;
 
     public Book(String name, String author, Genre genre) {
-        this.id = ID_GENERATOR.getAndIncrement();
+        this.id = GenerateId.genBookId();
         this.name = name;
         this.author = author;
         this.genre = genre;

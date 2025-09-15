@@ -15,27 +15,4 @@ public class Database {
     public Database() {
     }
 
-    public static List<Library> getLibraries() {
-        return libraries;
-    }
-
-    public static void setLibraries(List<Library> libraries) {
-        Database.libraries = libraries;
-    }
-
-    public static List<Book> getBooks() {
-        return books;
-    }
-
-    public static void setBooks(List<Book> books) {
-        Database.books = books;
-    }
-
-    public static List<Reader> getReaders() {
-        return readers;
-    }
-
-    public static void setReaders(List<Reader> readers) {
-        Database.readers = readers;
-    }
 }

@@ -1,11 +1,12 @@
 package ArrayList.models.models;
 
+import ArrayList.models.db.GenerateId;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Library {
-    private static final AtomicLong ID_GENERATOR = new AtomicLong(1);
 
     private Long id;
     private String name;
@@ -14,7 +15,7 @@ public class Library {
     private List<Reader> readers;
 
     public Library(String name, String address) {
-        this.id = ID_GENERATOR.getAndIncrement();
+        this.id = GenerateId.genLibraryId();
         this.name = name;
         this.address = address;
         this.books = new ArrayList<>();
